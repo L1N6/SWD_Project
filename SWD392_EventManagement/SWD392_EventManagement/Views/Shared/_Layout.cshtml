@@ -1,58 +1,76 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SWD392_EventManagement</title>
+    <title>@ViewData["Title"] - SWD392_Project</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SWD392_EventManagement.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SWD392_Project.styles.css" asp-append-version="true" />
+    <style>
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .banner-buttons {
+            display: flex;
+        }
+
+            .banner-buttons button {
+                margin-left: 10px;
+            }
+
+        .footer {
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .banner {
+            background-color: #007BFF;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .banner-link {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .banner-title {
+            font-size: 36px;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SWD392_EventManagement</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-
-                    @if (TempData["UserName"] != null)
-                    {
-                        <div class="d-flex align-items-center">
-                            <!-- Added div for alignment -->
-                            <span style="color:red">Hello, @TempData["UserName"]</span>
-                            <img class="avatar-img" width="45" height="45" src="https://i.chungta.vn/2023/03/02/-7802-1677731962.jpg"> <!-- Add the source to your avatar image -->
-
-                        </div>
-                    }
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Thay thế phần header bằng phần banner tùy chỉnh -->
+    <div class="banner">
+        <div class="banner">
+            <a href="@Url.Action("Index", "Events")" class="banner-link">
+                <h1 class="banner-title">Event Management</h1>
+            </a>
+        </div>
+        <div class="banner-buttons">
+            <button class="btn btn-primary">Sign In</button>
+            <button class="btn btn-success">Sign Up</button>
+            <button class="btn btn-danger">Sign Out</button>
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - SWD392_EventManagement - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="footer text-center">
+        <p>&copy; 2023 - SWD392_Project</p>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
