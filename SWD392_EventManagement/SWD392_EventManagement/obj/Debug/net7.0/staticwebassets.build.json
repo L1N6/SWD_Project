@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FryI8n1FXcZua1FWLVxQpm7RwqYaROsgkzzNAlbfjn8=",
+  "Hash": "02/ZoWo5pzrG8yhXM4q7ZXj4PgbkHSTH0LOsIbdpH3A=",
   "Source": "SWD392_EventManagement",
   "BasePath": "_content/SWD392_EventManagement",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\wwwroot\\img\\nhan-vien-to-chuc-su-kien.jpg",
+      "SourceId": "SWD392_EventManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\wwwroot\\",
+      "BasePath": "_content/SWD392_EventManagement",
+      "RelativePath": "img/nhan-vien-to-chuc-su-kien.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\nhan-vien-to-chuc-su-kien.jpg"
     },
     {
       "Identity": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\wwwroot\\js\\site.js",
