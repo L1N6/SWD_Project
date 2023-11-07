@@ -20,3 +20,40 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* T?o ki?u cho ph?n comment */
+.comment-item {
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* T?o ki?u cho ph?n header c?a comment */
+.comment-header {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* T?o ki?u cho ph?n thông tin c?a ng??i comment */
+.user-info {
+    font-weight: bold;
+}
+
+/* T?o ki?u cho n?i dung c?a comment */
+.comment-content p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* T?o ki?u cho ph?n footer c?a comment */
+.comment-footer .comment-date {
+    color: #777;
+}

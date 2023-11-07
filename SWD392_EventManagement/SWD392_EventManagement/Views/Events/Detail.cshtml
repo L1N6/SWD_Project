@@ -5,6 +5,7 @@
     Event detailEvent = ViewBag.DetailEvent;
     var image = detailEvent.EventDetails.FirstOrDefault().Image;
     var imageUrl = image + ".jpg";
+    List<Comment> comments = ViewBag.CommentList;
 }
 
 <div class="container mt-5">
@@ -40,9 +41,23 @@
 
     <h2 class="mt-4">Bình luận</h2>
     <ul class="list-group">
-        @for (int i = 0; i < 5; i++)
+        @foreach (var comment in comments)
         {
-            <li class="list-group-item">Comment</li>
+            <li class="list-group-item comment-item">
+                <div class="comment-header">
+                    <div class="user-info">
+                        <strong>@comment.Account.FullName</strong>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <p>@comment.Content</p>
+                </div>
+                <div class="comment-footer">
+                    <span class="comment-date">
+                        <i class="far fa-clock"></i> @comment.CreatedAt.ToString("dd/MM/yyyy")
+                    </span>
+                </div>
+            </li>
         }
     </ul>
 </div>
