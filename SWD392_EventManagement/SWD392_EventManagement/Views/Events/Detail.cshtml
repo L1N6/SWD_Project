@@ -3,8 +3,7 @@
 @{
     ViewData["Title"] = "Event Detail";
     Event detailEvent = ViewBag.DetailEvent;
-    var image = detailEvent.EventDetails.FirstOrDefault().Image;
-    var imageUrl = image + ".jpg";
+    var imageUrl = detailEvent.EventDetails.FirstOrDefault().Image;
     List<Comment> comments = ViewBag.CommentList;
 }
 
@@ -64,7 +63,6 @@
     <h3>Thêm bình luận</h3>
         <form method="post" asp-controller="Comments" asp-action="Create">
             
-
         <div class="form-group">
             <label for="commentContent">Nội dung bình luận</label>
             <textarea class="form-control" id="commentContent" name="Content" rows="3" required></textarea>

@@ -3,6 +3,8 @@ using SWD392_EventManagement.IRepository.Repository;
 using SWD392_EventManagement.IRepository;
 using SWD392_EventManagement.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Drawing;
 
 namespace SWD392_EventManagement.Controllers
 {
@@ -58,6 +60,29 @@ namespace SWD392_EventManagement.Controllers
             ViewBag.ListProfileEvent = events;
             return View(events);
         }
+        public IActionResult Create()
+        {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
+            ViewBag.Categories = context.Categories.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create([Bind("Name, Description, StartDate, EndDate,  Location, CategoryId, AccountId")] Event createEvent, [Bind("Image")] EventDetail createEventDetail)
+        {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
+            createEvent.AccountId = idUser;
+            ViewBag.Categories = context.Categories.ToList();
+            context.Add(createEvent);
+            context.SaveChanges();
+            createEventDetail.EventId = context.Events.OrderByDescending(e => e.EventId).FirstOrDefault().EventId;
+            context.Add(createEventDetail);
+            context.SaveChanges();
+            return RedirectToAction("ProfileEvent", "Events");
+        }
+
 
     }
 }

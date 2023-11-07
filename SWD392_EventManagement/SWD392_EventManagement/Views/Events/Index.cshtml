@@ -92,8 +92,7 @@
         }
         @foreach (var item in events)
         {
-            var image = item.EventDetails.FirstOrDefault().Image;
-            var imageUrl = image + ".jpg";
+            var imageUrl = item.EventDetails.FirstOrDefault().Image;
 
             if (i % 3 == 0)
             {

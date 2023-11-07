@@ -35,13 +35,15 @@
     </style>
 </head>
 <body>
+    <div class="mt-4">
+        <a href="@Url.Action("Create", "Events")" class="btn btn-success">Tạo sự kiện</a>
+    </div>
     <div class="container">
         <div class="event-container">
             <div class="row">
                 @foreach (var item in events)
                 {
-                    var image = item.EventDetails.FirstOrDefault().Image;
-                    var imageUrl = image + ".jpg";
+                    var imageUrl = item.EventDetails.FirstOrDefault().Image;
 
                     <div class="col-md-4">
                         <div class="event">

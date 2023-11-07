@@ -132,9 +132,12 @@ namespace SWD392_EventManagement.Controllers
                 return true;
             }
         }
-
-        
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("User");
+            HttpContext.Session.Remove("UserName");
+            return RedirectToAction("Login", "User");
+        }
 
 
 
