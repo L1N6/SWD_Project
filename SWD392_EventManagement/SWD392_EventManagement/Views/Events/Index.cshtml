@@ -1,0 +1,128 @@
+﻿@model List<SWD392_EventManagement.Models.Event>
+@{
+    ViewData["Title"] = "Home Page";
+    List<Event> events = ViewBag.EventsList;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #1877f2;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .search-bar {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .event-container {
+            max-height: 400px; 
+            overflow-y: auto; 
+        }
+
+        .event {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            max-width: 30%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .event-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            font-size: 14px;
+        }
+
+        .event-image {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="search-bar">
+        <form asp-action="Search" method="post">
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input type="text" name="searchName" class="form-control" placeholder="Tìm kiếm sự kiện...">
+                </div>
+                <div class="col-md-4">
+                    <input type="date" id="startDate" name="startDate" class="form-control" placeholder="Ngày bắt đầu">
+                </div>
+                <div class="col-md-4">
+                    <input type="date" id="endDate" name="endDate" class="form-control" placeholder="Ngày kết thúc">
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="event-container">
+        @{
+            int i = 0;
+        }
+        @foreach (var item in events)
+        {
+            var image = item.EventDetails.FirstOrDefault().Image;
+            var imageUrl = image + ".jpg";
+
+            if (i % 3 == 0)
+            {
+                @if (i > 0)
+                {
+                    @:</div>
+                }
+
+                @:<div class="event-row">
+            }
+
+            <div class="event">
+                <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
+                    <img class="event-image" src="@Url.Content("~/img/" + imageUrl)" alt="Event @i">
+                </a>
+                <div class="event-title">@item.Name</div>
+                <div class="event-description">@item.Description</div>
+                <div class="event-details">
+                    <p>Ngày bắt đầu: @item.StartDate.ToString("dd/MM/yyyy")</p>
+                    <p>Ngày kết thúc: @item.EndDate.ToString("dd/MM/yyyy")</p>
+                    <p>Vị trí: @item.Location</p>
+                </div>
+                <button class="btn btn-info">Quan tâm</button>
+            </div>
+
+            i++;
+        }
+    </div>
+</div>
+
+</body>
+</html>

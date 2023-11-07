@@ -1,0 +1,48 @@
+﻿@model SWD392_EventManagement.Models.Event
+
+@{
+    ViewData["Title"] = "Event Detail";
+    Event detailEvent = ViewBag.DetailEvent;
+    var image = detailEvent.EventDetails.FirstOrDefault().Image;
+    var imageUrl = image + ".jpg";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="text-primary">@detailEvent.Name</h1>
+            <div class="event-image mt-4">
+                <img src="~/img/@imageUrl" asp-append-version="true" alt="Event Image" class="img-fluid rounded-circle">
+            </div>
+            <p >@detailEvent.Description</p>
+        </div>
+
+        <div class="col-md-6 text-right">
+            <div class="mt-4">
+                <p class="text-muted"><strong>Danh mục:</strong> @detailEvent.Category.Name</p>
+                <p><strong>Tài trợ bởi:</strong> @detailEvent.Sponsors.FirstOrDefault().Name</p>
+                <p><strong>Đơn vị tài trợ:</strong> @detailEvent.Sponsors.FirstOrDefault().UnitSponsor</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-details mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong class="text-success">Ngày bắt đầu:</strong> @detailEvent.StartDate.ToString("dd/MM/yyyy")</p>
+                <p><strong class="text-success">Ngày kết thúc:</strong> @detailEvent.EndDate.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="col-md-6 text-right">
+                <p><strong class="text-danger">Vị trí:</strong> @detailEvent.Location</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Bình luận</h2>
+    <ul class="list-group">
+        @for (int i = 0; i < 5; i++)
+        {
+            <li class="list-group-item">Comment</li>
+        }
+    </ul>
+</div>

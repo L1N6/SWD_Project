@@ -22,7 +22,12 @@ namespace SWD392_EventManagement.Controllers
             //        {
             //            new Claim(ClaimTypes.Name, user.UserName)
             //        };
-
+            var userNameClaim = HttpContext.User.FindFirst(ClaimTypes.Name);
+            if (userNameClaim != null)
+            {
+                string userName = userNameClaim.Value;
+                // Bây giờ bạn có thể sử dụng biến userName theo cách bạn muốn.
+            }
 
             //    if (user.Type)
             //    {
