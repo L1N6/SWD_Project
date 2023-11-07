@@ -15,6 +15,8 @@ namespace SWD392_EventManagement.Controllers
 
         public IActionResult Index()
         {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
             Events = _eventRepository.GetAll();
             ViewBag.EventsList = Events;
             return View(Events);
@@ -23,6 +25,8 @@ namespace SWD392_EventManagement.Controllers
         [HttpPost]
         public IActionResult Search(string? searchName, DateTime? startDate, DateTime? endDate)
         {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
             EventFilter eventFilter = new EventFilter()
             {
                 name = searchName,
@@ -37,6 +41,8 @@ namespace SWD392_EventManagement.Controllers
         
         public IActionResult Detail(int id)
         {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
             Event detailEvent = _eventRepository.GetOne(id);
             List<Comment> comments = context.Comments.Where(c => c.EventId == id).Include(c => c.Account).ToList();
             ViewBag.DetailEvent = detailEvent;

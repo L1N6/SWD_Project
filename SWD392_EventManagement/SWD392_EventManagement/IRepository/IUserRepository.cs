@@ -9,6 +9,5 @@ namespace SWD392_EventManagement.IRepository
         public Account FindUserById(int id);
         public bool ChangePass(int accountID, string newPass, string confirmNewPass);
         public bool ChangeAvatar(int id, string nameFile);
-
     }
 }
