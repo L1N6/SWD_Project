@@ -54,20 +54,24 @@
                 </div>
                 <div class="comment-footer">
                     <span class="comment-date">
-                        <i class="far fa-clock"></i> @comment.CreatedAt.ToString("dd/MM/yyyy")
+                        <i class="far fa-clock">@comment.CreatedAt.ToString("dd/MM/yyyy")</i>
                     </span>
                 </div>
             </li>
         }
     </ul>
-    <div class="mt-4">
-        <h3>Thêm bình luận</h3>
-        <form method="post" action="path-to-comment-action">
-            <div class="form-group">
-                <label for="commentContent">Nội dung bình luận</label>
-                <textarea class="form-control" id="commentContent" name="commentContent" rows="3" required></textarea>
+   <div class="mt-4">
+    <h3>Thêm bình luận</h3>
+        <form method="post" asp-controller="Comments" asp-action="Create">
+            
+
+        <div class="form-group">
+            <label for="commentContent">Nội dung bình luận</label>
+            <textarea class="form-control" id="commentContent" name="Content" rows="3" required></textarea>
+                <input type="hidden" name="EventId" value="@detailEvent.EventId"></input>
             </div>
-            <button type="submit" class="btn btn-primary">Gửi bình luận</button>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+    </form>
+</div>
+
 </div>

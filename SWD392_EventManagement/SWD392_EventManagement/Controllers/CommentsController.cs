@@ -58,15 +58,17 @@ namespace SWD392_EventManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CommentId,Content,AccountId,EventId,CreatedAt,DeleteOrUpdate")] Comment comment)
         {
-
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
+            comment.CreatedAt = DateTime.Now;
+            comment.DeleteOrUpdate = true;
+            comment.AccountId= idUser;
             _commentRepository.Create(comment);
-            return RedirectToAction(nameof(Index));
-
-
+            
 
             ViewData["AccountId"] = new SelectList(_accountRepository.GetAll(), "AccountId", "AccountId", comment.AccountId);
             ViewData["EventId"] = new SelectList(_eventRepository.GetAll(), "EventId", "EventId", comment.EventId);
-            return View(comment);
+            return RedirectToAction("Detail", "Events", new { id = comment.EventId });
         }
 
         public async Task<IActionResult> Edit(long? id)

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {}
+    "F:\\SWD392\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {}
   },
   "projects": {
-    "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {
+    "F:\\SWD392\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
+        "projectUniqueName": "F:\\SWD392\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
         "projectName": "SWD392_EventManagement",
-        "projectPath": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
-        "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
-        "outputPath": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\obj\\",
+        "projectPath": "F:\\SWD392\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "F:\\SWD392\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
