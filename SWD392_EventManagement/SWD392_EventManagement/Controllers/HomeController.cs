@@ -7,7 +7,7 @@ namespace SWD392_EventManagement.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        public Swd392Project2Context context = new Swd392Project2Context();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;

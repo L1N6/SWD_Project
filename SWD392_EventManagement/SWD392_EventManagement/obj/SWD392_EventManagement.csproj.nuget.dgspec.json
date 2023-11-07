@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {}
+    "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {}
   },
   "projects": {
-    "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {
+    "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
+        "projectUniqueName": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
         "projectName": "SWD392_EventManagement",
-        "projectPath": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
-        "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
-        "outputPath": "D:\\FALL23\\SWD392\\Project\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\obj\\",
+        "projectPath": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\SWD392_EventManagement.csproj",
+        "packagesPath": "C:\\Users\\blabl\\.nuget\\packages\\",
+        "outputPath": "E:\\ProjectSWD\\SWD_Project\\SWD392_EventManagement\\SWD392_EventManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\blabl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
