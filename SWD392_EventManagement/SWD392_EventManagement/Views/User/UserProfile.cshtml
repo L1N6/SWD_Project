@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Account Information";
+    List<Event> events = ViewBag.ListProfileEvent;
 }
 
 <style>
@@ -121,7 +122,6 @@
 
                 </form>
             </div>
-
         </div>
         @if (TempData["Mess"] != null)
         {

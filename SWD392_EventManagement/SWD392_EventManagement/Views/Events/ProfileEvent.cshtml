@@ -1,0 +1,66 @@
+﻿@model List<SWD392_EventManagement.Models.Event>
+@{
+    ViewData["Title"] = "Home Page";
+    List<Event> events = ViewBag.ListProfileEvent;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .event-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .event {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .event-title {
+            font-size: 20px;
+        }
+
+        .event-description {
+            font-size: 14px;
+        }
+
+        .event-image {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="event-container">
+            <div class="row">
+                @foreach (var item in events)
+                {
+                    var image = item.EventDetails.FirstOrDefault().Image;
+                    var imageUrl = image + ".jpg";
+
+                    <div class="col-md-4">
+                        <div class="event">
+                            <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
+                                <img class="event-image" src="@Url.Content("~/img/" + imageUrl)" alt="Event Image">
+                            </a>
+                            <div class="event-title">@item.Name</div>
+                            <div class="event-description">@item.Description</div>
+                            <div class="event-details">
+                                <p><strong>Ngày bắt đầu:</strong> @item.StartDate.ToString("dd/MM/yyyy")</p>
+                                <p><strong>Ngày kết thúc:</strong> @item.EndDate.ToString("dd/MM/yyyy")</p>
+                                <p><strong>Vị trí:</strong> @item.Location</p>
+                            </div>
+                            <button class="btn btn-info">Quan tâm</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

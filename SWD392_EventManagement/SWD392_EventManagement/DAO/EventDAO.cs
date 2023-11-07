@@ -44,7 +44,12 @@ namespace SWD392_EventManagement.DAO
                 {
                     query = query.Where(e => e.EndDate.Date == eventFilter.endDate.Value.Date);
                 }
-                
+
+                if (eventFilter.accountId != null)
+                {
+                    query = query.Where(e => e.AccountId == eventFilter.accountId);
+                }
+
                 list = query.Include(e => e.EventDetails).ToList();
             }
             catch (Exception)

@@ -58,10 +58,14 @@
         <div class="banner-buttons">
             @if (TempData["UserName"] == null)
             {
-                <button class="btn btn-primary">Sign In</button>
-                <button class="btn btn-success">Sign Up</button>
-            }else{
-                <button class="btn btn-danger">Sign Out</button>
+                <a href="/SignIn" class="btn btn-primary">Sign In</a>
+                <a href="/SignUp" class="btn btn-success">Sign Up</a>
+            }
+            else
+            {
+                <a href="/Events/ProfileEvent" class="btn btn-primary">My Events</a>
+                <a href="/User/UserProfile" class="btn btn-success">Profile</a>
+                <a href="/SignOut" class="btn btn-danger">Sign Out</a>
             }
         </div>
     </div>

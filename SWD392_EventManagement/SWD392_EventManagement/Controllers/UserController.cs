@@ -11,6 +11,7 @@ namespace SWD392_EventManagement.Controllers
 {
     public class UserController : Controller
     {
+
         public ActionResult Login()
         {
             return View();
@@ -21,6 +22,7 @@ namespace SWD392_EventManagement.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
         IUserRepository userRepository = new UserRepository();
+        EventIRepository eventIRepository = new EventRepository();
 
         [HttpPost]
         public IActionResult Login(string email, string password)
@@ -52,7 +54,7 @@ namespace SWD392_EventManagement.Controllers
                 TempData["ErrorMessage"] = "Need To Login";
                 return RedirectToAction("Login", "User");
             }
-            int idUser  = int.Parse(HttpContext.Session.GetString("User"));
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
             TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
             try
             {

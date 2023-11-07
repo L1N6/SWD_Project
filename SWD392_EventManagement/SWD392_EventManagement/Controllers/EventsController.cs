@@ -50,5 +50,14 @@ namespace SWD392_EventManagement.Controllers
             return View(detailEvent);
         }
 
+        public IActionResult ProfileEvent()
+        {
+            int idUser = int.Parse(HttpContext.Session.GetString("User"));
+            TempData["UserName"] = (HttpContext.Session.GetString("UserName"));
+            List<Event> events = _eventRepository.GetAllByFilter(new EventFilter() { accountId = idUser });
+            ViewBag.ListProfileEvent = events;
+            return View(events);
+        }
+
     }
 }
