@@ -1,0 +1,152 @@
+﻿@model SWD392_EventManagement.Models.Account
+
+@{
+    ViewData["Title"] = "Account Information";
+}
+
+<style>
+    /* Tùy chỉnh CSS để điều chỉnh kích thước và bố cục */
+    .centered-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px; /* Adjust this value as needed */
+    }
+
+
+    .account-info {
+        background-color: #f5f5f5; /* Đặt màu nền */
+        padding: 30px; /* Đặt padding cho phần tử chính */
+        text-align: center; /* Căn giữa nội dung */
+        height: 100vh;
+    }
+
+        .account-info img {
+            width: 200px; /* Đặt kích thước ảnh */
+            height: 200px;
+            border-radius: 50%; /* Làm cho ảnh hình tròn */
+        }
+
+        .account-info h1 {
+            font-size: 38px; /* Đặt kích thước chữ lớn hơn */
+        }
+
+        .account-info dt {
+            font-weight: bold; /* Đặt đậm cho các mục tiêu đề */
+        }
+</style>
+
+<div class="container">
+    <div class="account-info">
+        <h1>Account Information</h1>
+        <div class="row" style="margin-top: 50px; padding:10px">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-4">
+                        @if (!string.IsNullOrEmpty(Model.Avatar))
+                        {
+                            <img src="/SaveFile/@Model.Avatar" alt="Avatar" />
+                        }
+                        else
+                        {
+                            <img src="https://ngungonblog.files.wordpress.com/2016/03/pussinboots.gif?w=1200" alt="Avatar" />
+                        }
+                        <div>
+                            <form method="post" enctype="multipart/form-data" asp-controller="User" asp-action="AddAvatar">
+                                <input style="margin-top:4px" type="file" name="image" width="100px" class="form-control" accept="image/*" id="imageFile" />
+                                <button style="margin-top:4px" type="submit" class="btn btn-primary">Change Avatar</button>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-8">
+                        <dl style="text-align: left; padding:10px">
+                            <div class="row">
+                                <dt class="col-sm-4 text-right">User Name:</dt>
+                                <dd class="col-sm-8">@Model.UserName</dd>
+                            </div>
+
+                            <div class="row">
+                                <dt class="col-sm-4 text-right">Email:</dt>
+                                <dd class="col-sm-8">@Model.Email</dd>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.FullName))
+                            {
+                                <div class="row">
+                                    <dt class="col-sm-4 text-right">Full Name:</dt>
+                                    <dd class="col-sm-8">@Model.FullName</dd>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Phone))
+                            {
+                                <div class="row">
+                                    <dt class="col-sm-4 text-right">Phone:</dt>
+                                    <dd class="col-sm-8">@Model.Phone</dd>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Address))
+                            {
+                                <div class="row">
+                                    <dt class="col-sm-4 text-right">Address:</dt>
+                                    <dd class="col-sm-8">@Model.Address</dd>
+                                </div>
+                            }
+                        </dl>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 10px; background:burlywood" id="showSubmissionForm">Change Password</button>
+        <div id="submissionForm" style="display: none;">
+            <!-- Your form inputs go here -->
+            <div class="centered-form">
+                <form method="post" asp-controller="User" asp-action="ChangePass">
+
+                    <div class="form-group" style="width:300px;margin-top:10px">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group" style="width:300px;margin-top:10px">
+                        <label for="newPasswordConfirm">New Password Confirm</label>
+                        <input type="password" class="form-control" id="newPasswordConfirm" name="confirmNewPass">
+                    </div>
+                    <button style="margin-top: 5px" class="btn btn-primary" id="submitSubmission">Change</button>
+
+                </form>
+            </div>
+
+        </div>
+        @if (TempData["Mess"] != null)
+        {
+            <div class="d-flex align-items-center">
+                <span style="color:red">@TempData["Mess"]</span>
+            </div>
+        }
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var x = true;
+        $("#showSubmissionForm").click(function () {
+            if (x) {
+                $("#submissionForm").show();
+                x = false;
+            } else {
+                $("#submissionForm").hide();
+                x = true;
+            }
+        });
+        $("#submitSubmission").click(function () {
+            $("#submissionForm").show();
+        });
+    });
+
+</script>

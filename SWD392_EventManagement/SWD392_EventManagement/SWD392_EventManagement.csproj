@@ -15,8 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="IRepository\Repository\" />
+    <Folder Include="wwwroot\SaveFile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\SaveFile\416-4161186_22-feb-pixel-trees.png" />
   </ItemGroup>
 
 </Project>

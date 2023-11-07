@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,6 +27,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+
+                    @if (TempData["UserName"] != null)
+                    {
+                        <div class="d-flex align-items-center">
+                            <!-- Added div for alignment -->
+                            <span style="color:red">Hello, @TempData["UserName"]</span>
+                            <img class="avatar-img" width="45" height="45" src="https://i.chungta.vn/2023/03/02/-7802-1677731962.jpg"> <!-- Add the source to your avatar image -->
+
+                        </div>
+                    }
+
                 </div>
             </div>
         </nav>
