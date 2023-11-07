@@ -9,49 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SWD392_EventManagement
 build_property.RootNamespace = SWD392_EventManagement
-build_property.ProjectDir = D:\FALL23\SWD392\Project\SWD_Project\SWD392_EventManagement\SWD392_EventManagement\
+build_property.ProjectDir = E:\FPT\ki7\SWD392\SWD_Project\SWD392_EventManagement\SWD392_EventManagement\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\FALL23\SWD392\Project\SWD_Project\SWD392_EventManagement\SWD392_EventManagement
+build_property.MSBuildProjectDirectory = E:\FPT\ki7\SWD392\SWD_Project\SWD392_EventManagement\SWD392_EventManagement
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Detail.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Chart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Index.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Search.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXFNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Home/Index.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Home/Privacy.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/Error.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/_ViewImports.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/_ViewStart.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/_Layout.cshtml]
+[E:/FPT/ki7/SWD392/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-wnvpchn0ne
