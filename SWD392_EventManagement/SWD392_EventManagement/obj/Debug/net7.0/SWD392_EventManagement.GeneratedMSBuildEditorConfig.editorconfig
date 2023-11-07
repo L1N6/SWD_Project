@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\FALL23\SWD392\Project\SWD_Project\SWD392_EventManagement\SWD392_EventManagement
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Events/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXFNlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FALL23/SWD392/Project/SWD_Project/SWD392_EventManagement/SWD392_EventManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

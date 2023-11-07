@@ -70,7 +70,7 @@ CREATE TABLE EventDetails (
     event_id BIGINT NOT NULL,
     image NVARCHAR(250) NULL,
     agenda NVARCHAR(250) NULL,
-    FOREIGN KEY (event_id) REFERENCES Events(event_id)
+    FOREIGN KEY (event_id) REFERENCES Events(event_id)	
 );
 GO
 -- Tạo bảng Comments
