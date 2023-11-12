@@ -9,9 +9,9 @@ namespace SWD392_EventManagement.Repository
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class
     {
-        private readonly Swd392Project2Context _context;
+        private readonly Prn221ProjectContext _context;
 
-        public Repository(Swd392Project2Context context)
+        public Repository(Prn221ProjectContext context)
         {
             _context = context;
         }

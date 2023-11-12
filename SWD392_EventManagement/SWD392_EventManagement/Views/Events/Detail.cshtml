@@ -3,73 +3,162 @@
 @{
     ViewData["Title"] = "Event Detail";
     Event detailEvent = ViewBag.DetailEvent;
+    var sponsorsList = detailEvent.Sponsors.ToList();
     var imageUrl = detailEvent.EventDetails.FirstOrDefault().Image;
     List<Comment> comments = ViewBag.CommentList;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Các thẻ khác -->
+    <style>
+        .event-details {
+            border-left: 2px solid #ccc; /* Tạo đường kẻ bên trái */
+            padding-left: 20px; /* Khoảng cách giữa nội dung và đường kẻ */
+        }
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <h1 class="text-primary">@detailEvent.Name</h1>
-            <div class="event-image mt-4">
-                <img src="~/img/@imageUrl" asp-append-version="true" alt="Event Image" class="img-fluid rounded-circle">
-            </div>
-            <p >@detailEvent.Description</p>
-        </div>
+            .event-details p {
+                margin-bottom: 10px; /* Khoảng cách giữa các dòng trong thông tin chi tiết */
+            }
 
-        <div class="col-md-6 text-right">
-            <div class="mt-4">
-                <p class="text-muted"><strong>Danh mục:</strong> @detailEvent.Category.Name</p>
-                <p><strong>Tài trợ bởi:</strong> @detailEvent.Sponsors.FirstOrDefault().Name</p>
-                <p><strong>Đơn vị tài trợ:</strong> @detailEvent.Sponsors.FirstOrDefault().UnitSponsor</p>
-            </div>
-        </div>
-    </div>
+        .event-image img {
+            width: 100%; /* Hình ảnh sẽ chiếm toàn bộ chiều rộng của phần tử cha */
+            border-radius: 8px; /* Bo tròn các góc của hình ảnh */
+        }
 
-    <div class="event-details mt-4">
+        .h-100 {
+            height: 100%;
+        }
+        .comment-item {
+            border: 1px solid #ddd; /* Border cho mỗi bình luận */
+            margin-bottom: 10px; /* Khoảng cách giữa các bình luận */
+        }
+
+        .comment-header {
+            padding: 10px;
+            border-bottom: 2px solid #ddd; /* Border phân chia giữa thông tin người bình luận và nội dung, tăng độ đậm */
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Căn giữa các phần tử trong comment-header */
+        }
+
+        .comment-text {
+            padding: 10px;
+            color: #333; /* Màu chữ cho nội dung comment */
+        }
+
+        .comment-username,
+        .comment-date {
+            font-weight: bold; /* Tăng độ đậm cho tên người bình luận và ngày tháng */
+            margin-right: 5px; /* Khoảng cách giữa các phần tử */
+        }
+
+        .comment-divider {
+            margin: 0 5px; /* Khoảng cách giữa các dấu gạch thẳng | */
+            color: #666; /* Màu chữ của dấu gạch thẳng */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6">
-                <p><strong class="text-success">Ngày bắt đầu:</strong> @detailEvent.StartDate.ToString("dd/MM/yyyy")</p>
-                <p><strong class="text-success">Ngày kết thúc:</strong> @detailEvent.EndDate.ToString("dd/MM/yyyy")</p>
-            </div>
-            <div class="col-md-6 text-right">
-                <p><strong class="text-danger">Vị trí:</strong> @detailEvent.Location</p>
-            </div>
-        </div>
-    </div>
-
-    <h2 class="mt-4">Bình luận</h2>
-    <ul class="list-group">
-        @foreach (var comment in comments)
-        {
-            <li class="list-group-item comment-item">
-                <div class="comment-header">
-                    <div class="user-info">
-                        <strong>@comment.Account.FullName</strong>
+            <div class="col-md-8">
+                <div class="d-flex flex-column h-100">
+                    <h1 class="text-primary">@detailEvent.Name</h1>
+                    <div class="row flex-grow-1">
+                        <div class="col-md-6">
+                            <div class="event-image mt-4">
+                                <img src="~/img/@imageUrl" asp-append-version="true" alt="Event Image" class="img-fluid rounded-circle">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="event-details">
+                                <h2>Mô tả sự kiện</h2>
+                                <p>@detailEvent.Description</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="comment-content">
-                    <p>@comment.Content</p>
-                </div>
-                <div class="comment-footer">
-                    <span class="comment-date">
-                        <i class="far fa-clock">@comment.CreatedAt.ToString("dd/MM/yyyy")</i>
-                    </span>
-                </div>
-            </li>
-        }
-    </ul>
-   <div class="mt-4">
-    <h3>Thêm bình luận</h3>
-        <form method="post" asp-controller="Comments" asp-action="Create">
-            
-        <div class="form-group">
-            <label for="commentContent">Nội dung bình luận</label>
-            <textarea class="form-control" id="commentContent" name="Content" rows="3" required></textarea>
-                <input type="hidden" name="EventId" value="@detailEvent.EventId"></input>
             </div>
-        <button type="submit" class="btn btn-primary">Gửi bình luận</button>
-    </form>
-</div>
 
-</div>
+            <div class="col-md-4">
+                <div class="mt-4">
+                    <h2 class="text-muted">Thông tin chi tiết</h2>
+
+                    <p><strong>Danh mục:</strong> @detailEvent.Category.Name</p>
+                    <p>
+                        <strong>Tài trợ bởi:</strong>
+                        @for (int i = 0; i < sponsorsList.Count; i++)
+                        {
+                            <span>@sponsorsList[i].Name</span>
+                            @if (i < sponsorsList.Count - 1)
+                            {
+                                <span>, </span>
+                            }
+                        }
+                        .
+                    </p>
+                    <p>
+                        <strong>Đơn vị tài trợ:</strong>
+                        @for (int i = 0; i < sponsorsList.Count; i++)
+                        {
+                            <span>@sponsorsList[i].UnitSponsor</span>
+                            @if (i < sponsorsList.Count - 1)
+                            {
+                                <span>, </span>
+                            }
+                        }
+                        .
+                    </p>
+
+
+                    <p><strong class="text-success">Ngày bắt đầu:</strong> @detailEvent.StartDate.ToString("dd/MM/yyyy")</p>
+                    <p><strong class="text-success">Ngày kết thúc:</strong> @detailEvent.EndDate.ToString("dd/MM/yyyy")</p>
+                    <p><strong class="text-danger">Vị trí:</strong> @detailEvent.Location</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="mt-4">Bình luận</h2>
+        <ul class="list-group">
+            @foreach (var comment in comments)
+            {
+                <li class="list-group-item comment-item">
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <div class="comment-user-info">
+                                <span class="comment-username">@comment.Account.FullName</span>
+                                <span class="comment-divider">|</span>
+                                <span class="comment-date">
+                                    <i class="far fa-clock"></i> @comment.CreatedAt.ToString("dd/MM/yyyy")
+                                </span>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            <p>@comment.Content</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+
+        <div class="mt-4">
+            <h3>Thêm bình luận</h3>
+            <form method="post" asp-controller="Comments" asp-action="Create">
+
+                <div class="form-group">
+                    <label for="commentContent">Nội dung bình luận</label>
+                    <textarea class="form-control" id="commentContent" name="Content" rows="3" required></textarea>
+                    <input type="hidden" name="EventId" value="@detailEvent.EventId"></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
+

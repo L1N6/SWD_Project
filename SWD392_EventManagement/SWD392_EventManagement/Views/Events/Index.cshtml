@@ -2,11 +2,14 @@
 @{
     ViewData["Title"] = "Home Page";
     List<Event> events = ViewBag.EventsList;
+    List<Connection> connections = ViewBag.Care;
+    var accountId = ViewBag.AccountId;
 }
 <!DOCTYPE html>
 <html>
 <head>
     <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -37,91 +40,144 @@
         }
 
         .event-container {
-            max-height: 400px; 
-            overflow-y: auto; 
+            /* Remove max-height and overflow-y */
         }
 
-        .event {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            max-width: 30%;
-            display: inline-block;
-            vertical-align: top;
-        }
+        .event:hover {
+        background-color: #ccc;
+        border: 1px solid #999; /* Đổi màu border khi hover */
+        transition: background-color 0.3s ease, border 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    }
 
-        .event-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
+    .event {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        max-width: 30%;
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
 
-        .event-description {
-            font-size: 14px;
-        }
+    .event-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333; /* Màu chữ cho tiêu đề sự kiện */
+    }
 
-        .event-image {
-            max-width: 100%;
-        }
+    .event-description {
+        font-size: 14px;
+        color: #666; /* Màu chữ cho mô tả sự kiện */
+    }
+
+    .event-image {
+        max-width: 100%;
+    }
+
+    .btn-info {
+    background-color: #4CAF50; /* Màu nền cho nút Quan tâm */
+    color: #fff; /* Màu chữ cho nút Quan tâm */
+    border: 1px solid #4CAF50; /* Màu border cho nút Quan tâm */
+    padding: 10px 20px; /* Tăng độ dài của nút để chứa ngôi sao */
+    }
+
+    .btn-info:disabled {
+        background-color: #4CAF50;
+        color: #ffc107;
+        border: 1px solid #4CAF50;
+        opacity: 1;
+    }
+
+    .with-star {
+        color: #ffc107; /* Màu chữ cho nút Quan tâm (màu vàng) */
+    }
+
+    .fa-star {
+        margin-left: 2px; /* Khoảng cách giữa ngôi sao và chữ Quan tâm */
+    }
+
     </style>
 </head>
 <body>
     <div class="container">
-    <div class="search-bar">
-        <form asp-action="Search" method="post">
-            <div class="form-group row">
-                <div class="col-md-4">
-                    <input type="text" name="searchName" class="form-control" placeholder="Tìm kiếm sự kiện...">
+        <div class="search-bar">
+            <form asp-action="Index" method="post">
+                <div class="form-row align-items-center">
+                    <div class="col-md-3">
+                        <label for="searchName" class="sr-only">Tìm kiếm sự kiện</label>
+                        <label class="col-form-label" for="searchName">Tìm kiếm sự kiện</label>
+                        <input type="text" name="searchName" id="searchName" class="form-control" placeholder="Tìm kiếm sự kiện...">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="startDate" class="sr-only">Ngày bắt đầu</label>
+                        <label class="col-form-label" for="startDate">Ngày bắt đầu</label>
+                        <input type="date" id="startDate" name="startDate" class="form-control" placeholder="Ngày bắt đầu">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="endDate" class="sr-only">Ngày kết thúc</label>
+                        <label class="col-form-label" for="endDate">Ngày kết thúc</label>
+                        <input type="date" id="endDate" name="endDate" class="form-control" placeholder="Ngày kết thúc">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-form-label" ></label>
+                        <button type="submit" class="btn btn-primary btn-sm btn-block">Tìm kiếm</button>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <input type="date" id="startDate" name="startDate" class="form-control" placeholder="Ngày bắt đầu">
-                </div>
-                <div class="col-md-4">
-                    <input type="date" id="endDate" name="endDate" class="form-control" placeholder="Ngày kết thúc">
-                </div>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-    <div class="event-container">
-        @{
-            int i = 0;
-        }
-        @foreach (var item in events)
-        {
-            var imageUrl = item.EventDetails.FirstOrDefault().Image;
 
-            if (i % 3 == 0)
+
+
+
+        <div class="event-container">
+            @{
+                int i = 0;
+            }
+            @foreach (var item in events)
             {
-                @if (i > 0)
+                var imageUrl = item.EventDetails.FirstOrDefault().Image;
+
+                if (i % 3 == 0)
                 {
-                    @:</div>
+                    @if (i > 0)
+                    {
+                        @:</div>
+                    }
+
+                    @:<div class="event-row">
                 }
 
-                @:<div class="event-row">
-            }
-
-            <div class="event">
-                <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
-                    <img class="event-image" src="@Url.Content("~/img/" + imageUrl)" alt="Event @i">
-                </a>
-                <div class="event-title">@item.Name</div>
-                <div class="event-description">@item.Description</div>
-                <div class="event-details">
-                    <p>Ngày bắt đầu: @item.StartDate.ToString("dd/MM/yyyy")</p>
-                    <p>Ngày kết thúc: @item.EndDate.ToString("dd/MM/yyyy")</p>
-                    <p>Vị trí: @item.Location</p>
+                <div class="event">
+                    <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
+                        <img class="event-image" src="@Url.Content("~/img/" + imageUrl)" alt="Event @i">
+                    </a>
+                    <div class="event-title">@item.Name</div>
+                    <div class="event-description">@item.Description</div>
+                    <div class="event-details">
+                        <p>Ngày bắt đầu: @item.StartDate.ToString("dd/MM/yyyy")</p>
+                        <p>Ngày kết thúc: @item.EndDate.ToString("dd/MM/yyyy")</p>
+                        <p>Vị trí: @item.Location</p>
+                    </div>
+                    @if(connections.Where(c => c.EventId == item.EventId && c.AccountId == accountId).FirstOrDefault() != null){
+                        <a class="btn btn-info with-star" disabled>
+                            Quan tâm <i class="fa fa-star"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("CareEvent", "Events", new { id = item.EventId})" class="btn btn-info">
+                            Quan tâm
+                        </a>
+                    }
                 </div>
-                <button class="btn btn-info">Quan tâm</button>
-            </div>
 
-            i++;
-        }
+                i++;
+            }
+        </div>
     </div>
-</div>
-
 </body>
 </html>
+

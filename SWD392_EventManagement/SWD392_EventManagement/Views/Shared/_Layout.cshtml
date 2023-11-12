@@ -8,43 +8,63 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SWD392_Project.styles.css" asp-append-version="true" />
     <style>
-        .banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+        /* Thay đổi màu sắc và hiệu ứng hover cho nút */
+        .banner-buttons button {
+            margin-left: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .banner-buttons {
-            display: flex;
-        }
-
-            .banner-buttons button {
-                margin-left: 10px;
+            .banner-buttons button:hover {
+                background-color: #2980b9;
+                color: #fff;
             }
-
-        .footer {
-            margin-top: 20px;
-            background-color: #f2f2f2;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .banner {
-            background-color: #007BFF;
-            padding: 20px;
-            text-align: center;
-        }
 
         .banner-link {
             text-decoration: none;
             color: #fff;
+            transition: color 0.3s ease;
         }
+
+            .banner-link:hover {
+                color: #f39c12;
+            }
 
         .banner-title {
             font-size: 36px;
             margin: 0;
+            transition: color 0.3s ease;
         }
+
+            .banner-title:hover {
+                color: #f39c12; /* Màu chữ khi hover */
+            }
+
+        /* Chia đôi banner */
+        .banner {
+            background-color: #3498db;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between; /* Chia đôi banner */
+            align-items: center;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 10px; /* Khoảng cách giữa các nút */
+        }
+
+            .banner-buttons a {
+                font-size: 16px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+                .banner-buttons a:hover {
+                    background-color: #2980b9;
+                    color: #fff;
+                }
+
+
     </style>
 </head>
 <body>

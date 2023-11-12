@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Swd392Project2Context>(options =>
+builder.Services.AddDbContext<Prn221ProjectContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("SWD_392_Project")));
 builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
 

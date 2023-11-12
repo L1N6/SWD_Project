@@ -8,7 +8,7 @@ namespace SWD392_EventManagement.DAO
     public class UserDAO 
     {
       
-        private readonly Swd392Project2Context _context = new Swd392Project2Context();
+        private readonly Prn221ProjectContext _context = new Prn221ProjectContext();
 
  
         public Account Login(string email, string pass) {

@@ -41,6 +41,32 @@
                 }
             </select>
         </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-secondary" onclick="toggleInvestorFields()">Thêm thông tin nhà đầu tư</button>
+        </div>
+
+        <div class="form-group investor-fields" style="display: none;">
+            <label for="SponsorName">Tên nhà đầu tư:</label>
+            <input type="text" id="SponsorName" name="SponsorName" class="form-control" required>
+        </div>
+
+        <div class="form-group investor-fields" style="display: none;">
+            <label for="InforSponsor">Thông tin nhà đầu tư:</label>
+            <textarea id="InforSponsor" name="InforSponsor" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group investor-fields" style="display: none;">
+            <label for="UnitSponsor">Đơn vị đầu tư:</label>
+            <input type="text" id="UnitSponsor" name="UnitSponsor" class="form-control">
+        </div>
         <button type="submit" class="btn btn-primary">Tạo sự kiện</button>
     </form>
 </div>
+<script>
+    function toggleInvestorFields() {
+        var investorFields = document.querySelectorAll('.investor-fields');
+        for (var i = 0; i < investorFields.length; i++) {
+            investorFields[i].style.display = (investorFields[i].style.display === 'none') ? 'block' : 'none';
+        }
+    }
+</script>

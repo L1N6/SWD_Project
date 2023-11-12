@@ -65,7 +65,6 @@ namespace SWD392_EventManagement.Controllers
             comment.AccountId= idUser;
             _commentRepository.Create(comment);
             
-
             ViewData["AccountId"] = new SelectList(_accountRepository.GetAll(), "AccountId", "AccountId", comment.AccountId);
             ViewData["EventId"] = new SelectList(_eventRepository.GetAll(), "EventId", "EventId", comment.EventId);
             return RedirectToAction("Detail", "Events", new { id = comment.EventId });

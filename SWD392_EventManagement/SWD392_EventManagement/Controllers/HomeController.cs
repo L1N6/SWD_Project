@@ -11,7 +11,7 @@ namespace SWD392_EventManagement.Controllers
     {
         private EventIRepository _eventRepository = new EventRepository();
         private readonly ILogger<HomeController> _logger;
-        public Swd392Project2Context context = new Swd392Project2Context();
+        public Prn221ProjectContext context = new Prn221ProjectContext();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;

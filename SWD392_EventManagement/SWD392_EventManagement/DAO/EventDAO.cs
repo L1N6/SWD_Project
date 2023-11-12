@@ -6,7 +6,7 @@ namespace SWD392_EventManagement.DAO
 {
     public class EventDAO
     {
-        private readonly Swd392Project2Context context = new Swd392Project2Context();
+        private readonly Prn221ProjectContext context = new Prn221ProjectContext();
 
         public List<Event> GetAll()
         {

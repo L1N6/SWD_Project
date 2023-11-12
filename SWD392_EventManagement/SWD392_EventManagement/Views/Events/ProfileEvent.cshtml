@@ -4,14 +4,50 @@
     List<Event> events = ViewBag.ListProfileEvent;
 }
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Trang chủ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #1877f2;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .search-bar {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
         .event-container {
-            max-height: 400px;
-            overflow-y: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .event:hover {
+            background-color: #ccc;
+            border: 1px solid #999;
+            transition: background-color 0.3s ease, border 0.3s ease;
         }
 
         .event {
@@ -19,50 +55,96 @@
             padding: 10px;
             margin: 10px;
             border-radius: 5px;
+            width: calc(30% - 20px);
+            background-color: #fff;
+            position: relative;
         }
 
         .event-title {
             font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
         }
 
         .event-description {
             font-size: 14px;
+            color: #666;
         }
 
         .event-image {
             max-width: 100%;
         }
+
+        .btn-info {
+            background-color: #4CAF50;
+            color: #fff;
+            border: 1px solid #4CAF50;
+            padding: 10px 20px;
+        }
+
+            .btn-info:disabled {
+                background-color: #4CAF50;
+                color: #ffc107;
+                border: 1px solid #4CAF50;
+                opacity: 1;
+            }
+
+        .with-star {
+            color: #ffc107;
+        }
+
+        .fa-star {
+            margin-left: 2px;
+        }
     </style>
 </head>
 <body>
-    <div class="mt-4">
-        <a href="@Url.Action("Create", "Events")" class="btn btn-success">Tạo sự kiện</a>
-    </div>
     <div class="container">
-        <div class="event-container">
-            <div class="row">
-                @foreach (var item in events)
-                {
-                    var imageUrl = item.EventDetails.FirstOrDefault().Image;
 
-                    <div class="col-md-4">
-                        <div class="event">
-                            <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
-                                <img class="event-image" src="@Url.Content("~/img/" + imageUrl)" alt="Event Image">
-                            </a>
-                            <div class="event-title">@item.Name</div>
-                            <div class="event-description">@item.Description</div>
+        <div class="action-bar mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="@Url.Action("Create", "Events")" class="btn btn-success btn-lg">
+                            <i class="fas fa-calendar-plus"></i> Tạo sự kiện mới
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-container row">
+            @{
+                int i = 0;
+            }
+            @foreach (var item in events)
+            {
+                var imageUrl = item.EventDetails.FirstOrDefault().Image;
+
+                <div class="col-md-4 float-left">
+                    <div class="card mb-4 shadow-sm">
+                        <a href="@Url.Action("Detail", "Events", new { id = item.EventId })">
+                            <img class="card-img-top" src="@Url.Content("~/img/" + imageUrl)" alt="Event @i">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Description</p>
                             <div class="event-details">
                                 <p><strong>Ngày bắt đầu:</strong> @item.StartDate.ToString("dd/MM/yyyy")</p>
                                 <p><strong>Ngày kết thúc:</strong> @item.EndDate.ToString("dd/MM/yyyy")</p>
                                 <p><strong>Vị trí:</strong> @item.Location</p>
                             </div>
-                            <button class="btn btn-info">Quan tâm</button>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+
+                i++;
+            }
         </div>
     </div>
 </body>
 </html>
+
+
+
+

@@ -25,6 +25,8 @@ public partial class Account
 
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
+    public virtual ICollection<Connection> Connections { get; set; } = new List<Connection>();
+
     public virtual ICollection<Event> Events { get; set; } = new List<Event>();
 
     public virtual Role Role { get; set; } = null!;

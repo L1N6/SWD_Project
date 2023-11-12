@@ -8,9 +8,9 @@ namespace SWD392_EventManagement.DAO
 {
     public class CommentDAO
     {
-        private readonly Swd392Project2Context _context;
+        private readonly Prn221ProjectContext _context;
 
-        public CommentDAO(Swd392Project2Context context)
+        public CommentDAO(Prn221ProjectContext context)
         {
             _context = context;
         }
